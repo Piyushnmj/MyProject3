@@ -7,13 +7,11 @@
     static void Main(string[] args)
     {
         int empHrs = 0;
-        int empWage = 0; 
+        int empWage = 0;
         int totalEmpWage = 0;
 
-        for (int day = 0; day < NUM_OF_WORKING_DAYS; day++)
-        {
-            Random random = new Random();
-            int empCheck = random.Next(0, 3);
+        Random random = new Random();
+        int empCheck = random.Next(0, 3);
             switch (empCheck)
             {
                 case IS_FULL_TIME:
@@ -27,9 +25,7 @@
                     break;
             }
             empWage = empHrs * EMP_RATE_PER_HOUR;
-            totalEmpWage += empWage;
-            Console.WriteLine("Employee Wage: " + empWage);
-        }
-        Console.WriteLine("Total Employee Wage: " + totalEmpWage);
+            totalEmpWage = empWage * NUM_OF_WORKING_DAYS;
+            Console.WriteLine("Total Employee Wage: " + totalEmpWage);
     }
 }
