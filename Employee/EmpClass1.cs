@@ -50,6 +50,6 @@
             totalEmpHrs += empHrs;  
             Console.WriteLine("Day#:" + totalWorkingDays + "Emp Hrs: " + empHrs);
         }
-        return totalEmpHrs * companyEmpWage.empRatePerHour;
+        return totalEmpHrs * companyEmpWage.;
     }
 }
