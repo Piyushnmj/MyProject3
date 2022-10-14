@@ -1,1 +1,11 @@
 # MyProject3
+Branch main - "UC1: employee is present or absent"
+Branch wage1 - "UC2: Calculating wage for full time employee"
+Branch wage2 - "UC3: Adding wage for part time employee"
+Branch case1 - "UC4: Employee wage using switch case statement"
+Branch case2 - "UC5: Calculating wages for 20 days"
+Branch case3 - "UC6: Employee wages for 100 hours or 20 days"
+Branch case4 - "UC7: Refactor the code to compute employee wage"
+Branch case5 - "UC8: Ability to compute employee wage for multiple companies"
+Branch case6 - "UC9: Employee total wage by company"
+Branch case7 - "UC10: Ability to manage employee wage of multiple companies"
