@@ -1,26 +1,36 @@
-﻿public class EmpWageBuilderObject
+﻿public class EmpWageBuilderArray
 {
     public const int IS_PART_TIME = 1;
     public const int IS_FULL_TIME = 2;
 
-    private string companyname;
-    private int empRatePerHour;
-    private int numOfWorkingDays;
-    private int maxHoursPerMonth;
-    private int totalEmpWage;
+    private int numOfCompany = 0;
+    private CompanyEmpWage[] companyEmpWageArray;
 
-    public EmpWageBuilderObject(string companyname, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
+    public EmpWageBuilderArray()
     {
-        this.companyname = companyname;
-        this.empRatePerHour = empRatePerHour;
-        this.numOfWorkingDays = numOfWorkingDays;
-        this.maxHoursPerMonth = maxHoursPerMonth;
+        this.companyEmpWageArray = new CompanyEmpWage[5];
     }
+
+    public void addCompanyEmpWage(string companyname, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
+    {
+        companyEmpWageArray[this.numOfCompany] = new CompanyEmpWage(companyname, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
+        numOfCompany++;
+    }
+
     public void computeEmpWage()
+    {
+        for (int i = 0; i < numOfCompany; i++)
+        {
+            companyEmpWageArray[i].setTotalEmpWage(this.computeEmpWage(this.companyEmpWageArray[i]));
+            Console.WriteLine(this.companyEmpWageArray[i].toString());
+        }
+    }
+
+    private int computeEmpWage(CompanyEmpWage companyEmpWage)
     {
         int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
 
-        while (totalEmpHrs <= this.maxHoursPerMonth && totalWorkingDays < this.numOfWorkingDays)
+        while (totalEmpHrs <= companyEmpWage.maxHoursPerMonth && totalWorkingDays < companyEmpWage.numOfWorkingDays)
         {
             totalWorkingDays++;
             Random random = new Random();
@@ -40,10 +50,6 @@
             totalEmpHrs += empHrs;  
             Console.WriteLine("Day#:" + totalWorkingDays + "Emp Hrs: " + empHrs);
         }
-        totalEmpWage = totalEmpHrs * this.empRatePerHour;
-    }
-    public string toString()
-    {
-        return "Total Employee Wage for Company: " + this.companyname + " is: " + this.totalEmpWage;
+        return totalEmpHrs * companyEmpWage.empRatePerHour;
     }
 }
