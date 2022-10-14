@@ -37,7 +37,7 @@
                     empHrs = 0;
                     break;
             }
-            totalEmpHrs += empHrs;
+            totalEmpHrs += empHrs;  
             Console.WriteLine("Day#:" + totalWorkingDays + "Emp Hrs: " + empHrs);
         }
         totalEmpWage = totalEmpHrs * this.empRatePerHour;
