@@ -1,10 +1,10 @@
 ﻿public class CompanyEmpWage
 {
-    private string companyname;
-    private int empRatePerHour;
-    private int numOfWorkingDays;
-    private int maxHoursPerMonth;
-    private int totalEmpWage;
+    public string companyname;
+    public int empRatePerHour;
+    public int numOfWorkingDays;
+    public int maxHoursPerMonth;
+    public int totalEmpWage;
 
     public CompanyEmpWage(string companyname, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
     {
