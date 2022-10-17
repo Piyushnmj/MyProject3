@@ -29,8 +29,33 @@
     }
 
     private int computeEmpWage(CompanyEmpWage companyEmpWage)
+    {
+        int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
 
-    public int getTotalWage(string company)
+        while (totalEmpHrs <= companyEmpWage.maxHoursPerMonth && totalWorkingDays < companyEmpWage.numOfWorkingDays)
+        {
+            totalWorkingDays++;
+            Random random = new Random();
+            int empCheck = random.Next(0, 3);
+            switch (empCheck)
+            {
+                case IS_PART_TIME:
+                    empHrs = 4;
+                    break;
+                case IS_FULL_TIME:
+                    empHrs = 8;
+                    break;
+                default:
+                    empHrs = 0;
+                    break;
+            }
+            totalEmpHrs += empHrs;
+            Console.WriteLine("Day#:" + totalWorkingDays + "Emp Hrs: " + empHrs);
+        }
+        return totalEmpHrs * companyEmpWage.empRatePerHour;
+    }
+
+    public int getTotalWage(string companyname)
     {
         return this.companyToEmpWageMap[companyname].totalEmpWage;
     }
